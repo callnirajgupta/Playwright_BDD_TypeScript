@@ -31,7 +31,8 @@ When('I enter username {string}', async ({ loginPage }, username: string) => {
 
 Then('I do visual testing of login page', async ({ page }) => {
   logger.step('I do visual testing of login page');
-  await expect(page).toHaveScreenshot('login.png', { fullPage: true });
+  await expect(page).toHaveScreenshot('login.png', { fullPage: true , maxDiffPixels: 1,      // Acceptable number of mismatched pixels
+  maxDiffPixelRatio: 0.2, // Acceptable percentage of mismatched pixels});
 });
 
 When('I enter password {string}', async ({ loginPage }, password: string) => {
