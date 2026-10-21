@@ -40,5 +40,5 @@ export const config = {
   retries: Number(process.env.RETRIES) || 0,
 
   /** Number of parallel workers */
-  workers: Number(process.env.WORKERS) || 1,
+  workers: Number(process.env.WORKERS) || 4,
 };

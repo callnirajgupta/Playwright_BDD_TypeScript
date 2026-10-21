@@ -450,7 +450,7 @@ All settings can be overridden via environment variables:
 | Viewport width | `VIEWPORT_WIDTH` | `1280` |
 | Viewport height | `VIEWPORT_HEIGHT` | `720` |
 | Retries | `RETRIES` | `0` |
-| Workers | `WORKERS` | `1` |
+| Workers | `WORKERS` | `4` |
 
 **Example — Run with custom settings:**
 ```bash
@@ -507,7 +507,7 @@ npx bddgen && npx playwright test --update-snapshots
 
 ## 7. Reporting
 
-This framework generates **two types of reports** simultaneously:
+This framework generates three types of reports simultaneously:
 
 ### 1. Playwright HTML Report
 - **Location:** `reports/playwright-html/`
@@ -518,6 +518,15 @@ This framework generates **two types of reports** simultaneously:
 - **Location:** `reports/cucumber-report.html`
 - **Open:** Open the file in any browser
 - **Features:** Classic BDD-style report with feature/scenario breakdown
+
+### 3. Allure Report
+- **Raw results:** `reports/allure-results/` (created when tests run)
+- **Generate the report:** `npm run allure:generate`
+- **Open the report:** `npm run allure:open`
+- **Prerequisite:** Java must be available on `PATH` for the Allure command-line tool.
+- **Features:** Test history, trends, labels, steps, and attached test artifacts
+
+Allure results are produced by the configured Playwright reporter on every test run. Generate the HTML report after a run to view the latest results; generation cleans the previous HTML output.
 
 ### Screenshots
 - Automatically captured on test **failure**

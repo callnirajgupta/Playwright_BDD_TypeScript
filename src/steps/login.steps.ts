@@ -21,10 +21,17 @@ Given('I am on the login page', async ({ loginPage }) => {
   await loginPage.navigateToLogin();
 });
 
+
 // ─── When Steps ─────────────────────────────────────────────
 
 When('I enter username {string}', async ({ loginPage }, username: string) => {
   await loginPage.enterUsername(username);
+});
+
+
+Then('I do visual testing of login page', async ({ page }) => {
+  logger.step('I do visual testing of login page');
+  await expect(page).toHaveScreenshot('login.png', { fullPage: true });
 });
 
 When('I enter password {string}', async ({ loginPage }, password: string) => {

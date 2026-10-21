@@ -450,7 +450,7 @@ All settings can be overridden via environment variables:
 | Viewport width | `VIEWPORT_WIDTH` | `1280` |
 | Viewport height | `VIEWPORT_HEIGHT` | `720` |
 | Retries | `RETRIES` | `0` |
-| Workers | `WORKERS` | `1` |
+| Workers | `WORKERS` | `4` |
 
 **Example — Run with custom settings:**
 ```bash

@@ -35,11 +35,13 @@ export default defineConfig({
 
   /* Parallel workers */
   workers: config.workers,
+  fullyParallel: true,
 
   /* Reporter configuration */
   reporter: [
     ['html', { open: 'never', outputFolder: 'reports/playwright-html' }],
     ['list'],
+    ['allure-playwright', { resultsDir: 'reports/allure-results' }],
     cucumberReporter('html', {
       outputFile: 'reports/cucumber-report.html',
     }),
