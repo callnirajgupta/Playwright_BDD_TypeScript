@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
 import { Given, When, Then } from '../support/fixtures';
 import { logger } from '../utils/logger';
+import { PDFParse } from 'pdf-parse';
 
 /**
  * Login Step Definitions
@@ -32,7 +33,14 @@ When('I enter username {string}', async ({ loginPage }, username: string) => {
 Then('I do visual testing of login page', async ({ page }) => {
   logger.step('I do visual testing of login page');
   await expect(page).toHaveScreenshot('login.png', { fullPage: true , maxDiffPixels: 1,      // Acceptable number of mismatched pixels
-  maxDiffPixelRatio: 0.2, // Acceptable percentage of mismatched pixels});
+  maxDiffPixelRatio: 0.2 });
+});
+
+When('I want to test PDF functionality', async ({ loginPage }) => {
+  const parser = new PDFParse({ url: 'file:///C:/Users/niraj/project/Playwright_BDD_TypeScript/src/testdata/bitcoin.pdf' });
+
+	const result = await parser.getText();
+	console.log(result.text);
 });
 
 When('I enter password {string}', async ({ loginPage }, password: string) => {

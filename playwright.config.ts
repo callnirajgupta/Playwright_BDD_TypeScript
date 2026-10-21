@@ -25,6 +25,7 @@ export default defineConfig({
   /* Expect timeout */
   expect: {
     timeout: 10_000,
+    //toHaveScreenshot: { maxDiffPixels: 1, maxDiffPixelRatio: 0.2 } applly for all toHaveScreenshot assertions, but can be overridden in individual tests
   },
 
   /* Fail the build on CI if test.only is left in source code */
@@ -56,7 +57,7 @@ export default defineConfig({
 
     /* Record trace on first retry */
     trace: 'on-first-retry',
-
+   
     /* Record video on failure */
     video: config.recordVideo ? 'on-first-retry' : 'off',
 
